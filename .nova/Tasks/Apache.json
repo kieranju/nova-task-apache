@@ -1,0 +1,18 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "[ ! -f httpd.conf ] && cat httpd.conf.default > httpd.conf && sed -i ''  's;\/print\/work\/directory;'$(pwd)';g' httpd.conf && sed -i '' 's;your_local_user;'$(id -u -n)';g' httpd.conf"
+    },
+    "clean" : {
+      "enabled" : true,
+      "script" : "[ -f httpd.error ] && rm httpd.error\n[ -f httpd.log ] && rm httpd.log"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "apachectl start -f $(pwd)\/httpd.conf\n\nquit() {\n\tapachectl stop -f $(pwd)\/httpd.conf\n\texit\n}\n\ntrap quit SIGINT\ntrap quit SIGTERM\n\nwait_file() {\n\tlocal file=\"$1\"; shift\n\tlocal wait_seconds=\"${1:-10}\"; shift\n\t\n\tuntil test $((wait_seconds--)) -eq 0 -o -f \"$file\" ; do sleep 1; done\n\t\n\t((++wait_seconds))\n}\n\nwait_file \"httpd.pid\" 3 || {\n\texit\n}\n\npid=$(<httpd.pid)\n\nlsof -p $pid +r 1 &>\/dev\/null"
+    }
+  },
+  "identifier" : "6238C40F-A8FD-41DC-873D-4D536F91C18E",
+  "persistent" : true
+}

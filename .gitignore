@@ -1,0 +1,9 @@
+.DS_Store
+*.log.txt
+
+# Apache configurations
+httpd.*
+!httpd.conf.default
+
+# Code editor configurations
+.nova/Configuration.json
