@@ -181,3 +181,4 @@ LoadModule dir_module lib/httpd/modules/mod_dir.so
 #LoadModule userdir_module lib/httpd/modules/mod_userdir.so
 #LoadModule alias_module lib/httpd/modules/mod_alias.so
 LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
+LoadModule xsendfile_module lib/httpd/modules/mod_xsendfile.so

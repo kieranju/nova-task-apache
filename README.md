@@ -31,3 +31,13 @@
 9. Execute `apachectl stop -f $(pwd)/httpd.conf` to stop the Apache process.
 
    - In Nova code editor, stopping the Run action in the Apache task will stop the running Apache process. It will also stop itself if it detects the process has been closed elsewhere.
+   
+## Modules
+
+### XSendFile
+
+mod_xsendfile is a module that allows you to instruct Apache to send a file. It is most useful when performing access checks in PHP, so you could allow or deny access to certain files depending on authentication or other metrics.
+
+Download and follow the instructions to enable this module: https://github.com/nmaier/mod_xsendfile
+
+I am also looking for a better way to install modules like this one directly through homebrew.
