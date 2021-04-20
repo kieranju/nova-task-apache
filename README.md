@@ -14,7 +14,7 @@
 
 5. Execute `sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null` to prevent the default Apache process from starting with the system.
 
-6. Execute `brew install php@7.4`
+6. Execute `brew install php@7.4`.
 
    - Other versions of php can be installed and unlinked/linked as needed. For example: `brew unlink php@7.4` then `brew link php@7.5` to switch from PHP 7.4 to 7.5.
 
@@ -32,6 +32,20 @@
 
    - In Nova code editor, stopping the Run action in the Apache task will stop the running Apache process. It will also stop itself if it detects the process has been closed elsewhere.
    
+### HTTPS
+
+To be able to use HTTPS with localhost we need a root certificate and a domain certificate specifically created for the localhost domain.
+
+1. [Follow the steps](https://github.com/dakshshah96/local-cert-generator) laid out by Daksh Shah to generate an SSL certificate for your local development environment.
+
+2. Place the resulting `server.key` and `server.crt` files into the same directory as `httpd.conf`.
+
+3. Make adjustments to `httpd.conf`:
+
+   - Change `Listen localhost:8888 http` to `Listen localhost:8888 https`.
+   
+   - Change `SSLEngine off` to `SSLEngine on`.
+
 ## Modules
 
 ### XSendFile

@@ -1,6 +1,13 @@
 .DS_Store
 *.log.txt
 
+# Certificates
+*.pem
+*.key
+*.crt
+*.cer
+*.priv
+
 # Apache configurations
 httpd.*
 !httpd.conf.default
