@@ -16,7 +16,7 @@
 
 6. Execute `brew install php@7.4`.
 
-   - Other versions of php can be installed and unlinked/linked as needed. For example: `brew unlink php@7.4` then `brew link php@7.5` to switch from PHP 7.4 to 7.5.
+   - Other versions of php can be installed and unlinked/linked as needed. For example: `brew unlink php@7.4` then `brew link php@7.3` to switch from PHP 7.4 to 7.3.
 
 7. Copy and rename the project file `httpd.conf.default` to `httpd.conf` and make adjustments as necessary.
 
