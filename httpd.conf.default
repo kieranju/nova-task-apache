@@ -9,8 +9,9 @@ Listen localhost:8888 http
 # PHP MODULE
 
 # Make sure the version matches your local PHP version.
-# Take note as the folder structure has changed for PHP 8.
-# PHP 7: LoadModule php7_module /usr/local/opt/php@7.4/lib/httpd/modules/libphp.so
+# Take note as the structure has changed for PHP 8:
+# PHP 7: LoadModule php7_module /usr/local/opt/php@7.4/lib/httpd/modules/libphp7.so
+# PHP 8: LoadModule php_module /usr/local/opt/php@8.0/lib/httpd/modules/libphp.so
 LoadModule php_module /usr/local/opt/php@8.0/lib/httpd/modules/libphp.so
 
 # USER ACCOUNT
